@@ -4,6 +4,7 @@
 #include "Caracter.h"
 #include "Cadena.h"
 #include "Entero.h"
+#include "Decimal.h"
 
 class ListaCircular {
 public :
@@ -13,6 +14,8 @@ public :
 	void imprimirLista();
 	void eliminarNodo();
 	int numPorTipo(TipoNodo);
+	void imprimirCantidadTipos();
+	void eliminarNodo(int);
 private:
 	void imprimirListaRec(Nodo*);
 };

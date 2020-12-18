@@ -21,7 +21,16 @@ void ListaCircular::imprimirLista() {
 }
 
 void ListaCircular::imprimirListaRec(Nodo* actual) {
-	
+	std::cout << "[";
+	actual->imprimir();
+	std::cout << "]";
+	if (actual->siguiente != primero) {
+		std::cout << "->";
+		imprimirListaRec(actual->siguiente);
+	}
+	else {
+		std::cout << std::endl;
+	}
 }
 
 void ListaCircular::imprimirCantidadTipos() {
@@ -41,4 +50,29 @@ int ListaCircular::numPorTipo(TipoNodo tipo) {
 		temp = temp->siguiente;
 	} while (temp != primero);
 	return veces;
+}
+
+void ListaCircular::eliminarNodo(int pos) {
+	Nodo* actual = primero;
+	Nodo* temp=nullptr;
+	int i = 0;
+	while (actual != nullptr&&i<pos) {
+		temp = actual;
+		actual = actual->siguiente;
+		i++;
+	}
+	if (actual == primero) {
+		primero = primero->siguiente;
+		primero->anterior = ultimo;
+		ultimo->siguiente = primero;
+	}
+	else if (actual == ultimo) {
+		ultimo = temp;
+		ultimo->siguiente = primero;
+		primero->anterior = ultimo;
+	}
+	else {
+		temp->siguiente = actual->siguiente;
+		actual->siguiente->anterior = temp;
+	}
 }
