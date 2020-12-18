@@ -1,5 +1,11 @@
 #include "Nodo.h"
 
 Nodo::Nodo(char caracter) {
-	this = Nodo::Caracter(caracter);
+	Nodo* nuevo = this;
+	Caracter* r = new Caracter(caracter);
+	nuevo= new Caracter(caracter);
+}
+
+void Nodo::imprimir() {
+	
 }

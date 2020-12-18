@@ -7,6 +7,8 @@ class Caracter:public Nodo {
 public :
 	Caracter(char);
 	char contenido;
+	void imprimir();
+	TipoNodo getTipo();
 };
 
 #endif

@@ -1,16 +1,17 @@
 #pragma once
 #ifndef NODO_H
 #define NODO_H
-#include "Caracter.h";
-
+#include<iostream>
+enum TipoNodo{
+TipoEntero,TipoDecimal,TipoCaracter,TipoCadena
+};
 class Nodo {
 public:
-	Nodo(int);
-	Nodo(const char[]);
-	Nodo(char);
-	Nodo(float);
 	Nodo* anterior;
 	Nodo* siguiente;
+
+	virtual void imprimir()=0;
+	virtual TipoNodo getTipo()=0;
 
 	
 };
